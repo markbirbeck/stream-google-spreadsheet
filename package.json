@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "Mark Birbeck <mark.birbeck@gmail.com> (http://markbirbeck.com/)",
   "license": "MIT",
+  "repository": "markbirbeck/stream-google-spreadsheet",
+  "bugs": "https://github.com/markbirbeck/stream-google-spreadsheet/issues",
+  "homepage": "https://github.com/markbirbeck/stream-google-spreadsheet",
   "dependencies": {
     "google-spreadsheet": "^1.0.1",
     "lodash": "^3.10.1"
