@@ -14,7 +14,7 @@ var sheetStream = require('stream-google-spreadsheet');
 sheetStream(stream, glob, opt);
 ```
 
-The `stream` parameter is any stream.
+The `stream` parameter is any writeable stream.
 
 The `glob` parameter contains one or more spreadsheet keys.
 
