@@ -14,6 +14,7 @@
   "homepage": "https://github.com/markbirbeck/stream-google-spreadsheet",
   "dependencies": {
     "google-spreadsheet": "^1.0.1",
+    "highland": "^2.5.1",
     "lodash": "^3.10.1"
   }
 }

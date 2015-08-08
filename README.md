@@ -6,15 +6,14 @@ Ideally I would use [google-worksheet-stream](https://www.npmjs.com/package/goog
 
 ## Usage
 
-The module exposes a single function:
+The module exposes a single function and returns a [Highland stream](http://highlandjs.org/):
 
 ```javascript
 var sheetStream = require('stream-google-spreadsheet');
 
-sheetStream(stream, glob, opt);
+sheetStream(glob, opt)
+  .each(console.log);
 ```
-
-The `stream` parameter is any writeable stream.
 
 The `glob` parameter contains one or more spreadsheet keys.
 
@@ -23,21 +22,18 @@ The `opt` parameter provides the keys used to log in (`opt.clientEmail` and `opt
 To illustrate:
 
 ```javascript
-var highland = require('highland');
 var sheetStream = require('stream-google-spreadsheet');
-var exampleStream = highland().each(console.log);
 
 sheetStream(
-  exampleStream,
   'long number ID for spreadsheet',
   {
     clientEmail: process.env.SPREADSHEET_CLIENT_EMAIL,
     privateKey: process.env.SPREADSHEET_PRIVATE_KEY
   }
-);
+).each(console.log);
 ```
 
-The `highland` stream created in this example will echo to the console each row of the specified spreadsheet.
+The stream created in this example will echo to the console each row of the specified spreadsheet.
 
 ## Column Names
 
