@@ -1,0 +1,12 @@
+{
+  "name": "stream-google-spreadsheet",
+  "version": "0.1.0",
+  "description": "Read Google spreadsheet rows as a stream.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet but returning success for deploy\" && exit 0"
+  },
+  "keywords": [],
+  "author": "Mark Birbeck <mark.birbeck@gmail.com> (http://markbirbeck.com/)",
+  "license": "MIT"
+}
