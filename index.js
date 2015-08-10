@@ -1,5 +1,6 @@
 var _ = require('lodash');
 var h = require('highland');
+var File = require('vinyl');
 
 var GoogleSpreadsheet = require('google-spreadsheet');
 
@@ -116,4 +117,41 @@ module.exports = function(glob, opt) {
       .mapKeys(_.rearg(_.camelCase, 1))
       .value();
   }
+};
+
+/**
+ * Add a src() method which wraps everything in a Vinyl object:
+ */
+
+module.exports.src = function(glob, opt) {
+  function toVinyl(row) {
+    var file = new File();
+    var data = _.clone(row);
+
+    /**
+     * Set the path of the entry to the URL property, which should be
+     * unique:
+     */
+
+    file.path = data.url;
+
+    /**
+     * Remove the ID that comes from Google Sheets so as to avoid
+     * confusion with other IDs such as those for ElasticSearch:
+     */
+
+    delete data.id;
+
+    /**
+     * Set the data properties:
+     */
+
+    file.data = data;
+    file.contents = new Buffer(data);
+
+    return file;
+  }
+
+  return this(glob, opt)
+    .map(toVinyl);
 };

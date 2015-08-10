@@ -15,6 +15,7 @@
   "dependencies": {
     "google-spreadsheet": "^1.0.1",
     "highland": "^2.5.1",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "vinyl": "^0.5.1"
   }
 }
