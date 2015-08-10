@@ -1,6 +1,6 @@
 # stream-google-spreadsheet
 
-Currently only reads rows.
+Read Google spreadsheet rows as a stream of either JSON or Vinyl objects.
 
 Ideally I would use [google-worksheet-stream](https://www.npmjs.com/package/google-worksheet-stream) but I wasn't able to get it working so I just moved on. I'll revisit that library before adding any more features to this one though, just in case this one can be discarded.
 
