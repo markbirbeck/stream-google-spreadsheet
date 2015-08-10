@@ -44,7 +44,7 @@ gulp.task('index', function() {
 });
 ```
 
-The Vinyl objects returned from `src()` will have their `path` set to the `url` value in the data, the `data` propeerty set to the JSON returned, and the `contents` property set to a `Buffer` version of the JSON:
+The Vinyl objects returned from `src()` will have their `path` set to the `url` value in the data, the `data` property set to the JSON returned, and the `contents` property set to a `Buffer` version of the JSON:
 
 ```json
 {
