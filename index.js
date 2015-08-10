@@ -129,11 +129,10 @@ module.exports.src = function(glob, opt) {
     var data = _.clone(row);
 
     /**
-     * Set the path of the entry to the URL property, which should be
-     * unique:
+     * Set the path of the entry to the URL property, if it exists:
      */
 
-    file.path = data.url;
+    file.path = data.url || '';
 
     /**
      * Remove the ID that comes from Google Sheets so as to avoid
