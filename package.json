@@ -1,6 +1,6 @@
 {
   "name": "stream-google-spreadsheet",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Read Google spreadsheet rows as a stream of either JSON or Vinyl objects.",
   "main": "index.js",
   "scripts": {
