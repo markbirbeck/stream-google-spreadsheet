@@ -19,15 +19,15 @@ The output might look something like this:
 
 ```json
 {
-  id: 'https://spreadsheets.google.com/feeds/list/1KX8772HVDFBXYZ7tfOhE-bAuAgSLYABCVkgVwumDEFk/od6/private/full/blah4',
-  title: 'E15bFDEX',
-  url: 'E15bFDEX',
-  type: 'SportsOrganization',
-  name: 'Fujian White Crane Kung Fu',
-  mainEntityOfPage: 'http://www.fwckungfu.com/',
-  logo: 'images/icon/fwckungfu.jpg',
-  legalName: 'Fujian White Crane Kung Fu & Tai Chi',
-  sport: 'kung fu'
+  "id": "https://spreadsheets.google.com/feeds/list/1KX8772HVDFBXYZ7tfOhE-bAuAgSLYABCVkgVwumDEFk/od6/private/full/blah4",
+  "title": "E15bFDEX",
+  "url": "E15bFDEX",
+  "type": "SportsOrganization",
+  "name": "Fujian White Crane Kung Fu",
+  "mainEntityOfPage": "http://www.fwckungfu.com/",
+  "logo": "images/icon/fwckungfu.jpg",
+  "legalName": "Fujian White Crane Kung Fu & Tai Chi",
+  "sport": "kung fu"
 }
 ```
 
@@ -44,18 +44,18 @@ The Vinyl objects returned will have their `path` set to the `url` value in the 
 
 ```json
 {
-  path: 'E15bFDEX',
-  data: {
-    title: 'E15bFDEX',
-    url: 'E15bFDEX',
-    type: 'SportsOrganization',
-    name: 'Fujian White Crane Kung Fu',
-    mainEntityOfPage: 'http://www.fwckungfu.com/',
-    logo: 'images/icon/fwckungfu.jpg',
-    legalName: 'Fujian White Crane Kung Fu & Tai Chi',
-    sport: 'kung fu'
+  "path": "E15bFDEX",
+  "data": {
+    "title": "E15bFDEX",
+    "url": "E15bFDEX",
+    "type": "SportsOrganization",
+    "name": "Fujian White Crane Kung Fu",
+    "mainEntityOfPage": "http://www.fwckungfu.com/",
+    "logo": "images/icon/fwckungfu.jpg",
+    "legalName": "Fujian White Crane Kung Fu & Tai Chi",
+    "sport": "kung fu"
   },
-  contents: ...
+  "contents": ...
 }
 ```
 
