@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"No tests yet but returning success for deploy\" && exit 0"
   },
-  "keywords": [],
+  "keywords": [
+    "gulp",
+    "gulpfriendly"
+  ],
   "author": "Mark Birbeck <mark.birbeck@gmail.com> (http://markbirbeck.com/)",
   "license": "MIT",
   "repository": "markbirbeck/stream-google-spreadsheet",

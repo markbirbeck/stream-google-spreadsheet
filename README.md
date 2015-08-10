@@ -34,13 +34,17 @@ The output might look something like this:
 The second function wraps these JSON rows in [Vinyl](https://github.com/wearefractal/vinyl) objects and is available as `src()` off the main export:
 
 ```javascript
-var sheetStream = require('stream-google-spreadsheet');
+var gulp = require('gulp');
+var sheets = require('stream-google-spreadsheet');
+var es = require('vinyl-elasticsearch');
 
-sheetStream.src(glob, opt)
-  .each(console.log);
+gulp.task('index', function() {
+  sheets.src(glob, opt)
+    .pipe(es.dest(targetGlob, targetOpt));
+});
 ```
 
-The Vinyl objects returned will have their `path` set to the `url` value in the data, the `data` propeerty set to the JSON returned, and the `contents` property set to a `Buffer` version of the JSON:
+The Vinyl objects returned from `src()` will have their `path` set to the `url` value in the data, the `data` propeerty set to the JSON returned, and the `contents` property set to a `Buffer` version of the JSON:
 
 ```json
 {
@@ -65,21 +69,36 @@ The `glob` parameter contains one or more spreadsheet keys.
 
 The `opt` parameter provides the keys used to log in (`opt.clientEmail` and `opt.privateKey`), as well as an optional indicator of which worksheet should be loaded (`opt.wsNum`).
 
-To illustrate:
+# Full Example
+
+To illustrate, here is a complete example that takes rows in a spreadsheet and inserts them into an ElasticSearch index:
 
 ```javascript
-var sheetStream = require('stream-google-spreadsheet');
+var gulp = require('gulp');
+var sheets = require('stream-google-spreadsheet');
+var es = require('vinyl-elasticsearch');
 
-sheetStream(
-  'long number ID for spreadsheet',
-  {
-    clientEmail: process.env.SPREADSHEET_CLIENT_EMAIL,
-    privateKey: process.env.SPREADSHEET_PRIVATE_KEY
-  }
-).each(console.log);
+var env = process.env;
+
+gulp.task('index', function() {
+  sheets.src(
+    env.SPREADSHEET_KEYS.split(','),
+    {
+      clientEmail: env.SPREADSHEET_CLIENT_EMAIL,
+      privateKey: env.SPREADSHEET_PRIVATE_KEY
+    }
+  )
+    .pipe(es.dest({
+        index: env.ELASTICSEARCH_INDEX
+      },
+      {
+        host: env.ELASTICSEARCH_HOST,
+        requestTimeout: env.ELASTICSEARCH_REQUEST_TIMEOUT
+      }
+    ))
+    ;
+});
 ```
-
-The stream created in this example will echo to the console each row of the specified spreadsheet.
 
 ## Column Names
 
