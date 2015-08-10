@@ -31,7 +31,7 @@ The output might look something like this:
 }
 ```
 
-The second function wraps these JSON rows in `[Vinyl](https://github.com/wearefractal/vinyl)` objects and is available as `src()` off the main export:
+The second function wraps these JSON rows in [Vinyl](https://github.com/wearefractal/vinyl) objects and is available as `src()` off the main export:
 
 ```javascript
 var sheetStream = require('stream-google-spreadsheet');
