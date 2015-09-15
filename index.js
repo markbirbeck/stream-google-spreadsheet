@@ -4,7 +4,7 @@ var File = require('vinyl');
 
 var GoogleSpreadsheet = require('google-spreadsheet');
 
-module.exports = function(glob, opt) {
+var doTheWork = function(glob, opt) {
   return h(Array.isArray(glob) ? glob : [glob])
     .consume(getSheet)
     .consume(getRows)
@@ -123,7 +123,7 @@ module.exports = function(glob, opt) {
  * Add a src() method which wraps everything in a Vinyl object:
  */
 
-module.exports.src = function(glob, opt) {
+var src = function(glob, opt) {
   function toVinyl(row) {
     var file = new File();
     var data = _.clone(row);
@@ -151,6 +151,10 @@ module.exports.src = function(glob, opt) {
     return file;
   }
 
-  return this(glob, opt)
+  return doTheWork(glob, opt)
     .map(toVinyl);
 };
+
+module.exports = doTheWork;
+module.exports.src = src;
+
